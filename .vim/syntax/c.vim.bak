@@ -1,0 +1,48 @@
+" Vim syntax file
+" Language:	C
+" Maintainer:	Bram Moolenaar <Bram@vim.org>
+" Last Change:	2012 Jan 14
+
+""========================================================
+" Highlight All Function
+"========================================================
+"hi cFunction        gui=NONE guifg=#B5A1FF
+syn match   cFunction "\<[a-zA-Z_][a-zA-Z_0-9]*\>[^()]*)("me=e-2
+syn match   cFunction "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
+"hi cFunction term=italic cterm=italic ctermfg=brown gui=bold guifg=#3EFFE2 guibg=#3EFFE2
+hi cFunction term=italic cterm=italic ctermfg=180 ctermbg=0 gui=bold
+
+"========================================================
+" Highlight All Math Operator
+"========================================================
+" C math operators
+syn match       cMathOperator     display "[-+\*\%=]"
+" C pointer operators
+syn match       cPointerOperator  display "->\|\."
+" C logical   operators - boolean results
+syn match       cLogicalOperator  display "[!<>]=\="
+syn match       cLogicalOperator  display "=="
+" C bit operators
+syn match       cBinaryOperator   display "\(&\||\|\^\|<<\|>>\)=\="
+"syn match       cBinaryOperator   display "\~"
+"syn match       cBinaryOperatorError display "\~="
+" More C logical operators - highlight in preference to binary
+syn match       cLogicalOperator  display "&&\|||"
+syn match       cLogicalOperatorError display "\(&&\|||\)="
+
+" Math Operator
+hi cMathOperator ctermfg=darkcyan guifg=#3EFFE2
+hi cPointerOperator ctermfg=darkcyan guifg=#3EFFE2
+hi cLogicalOperator ctermfg=darkcyan guifg=#3EFFE2
+hi cBinaryOperator ctermfg=darkcyan guifg=#3EFFE2
+hi cBinaryOperatorError ctermfg=darkcyan guifg=#3EFFE2
+hi cLogicalOperator ctermfg=darkcyan guifg=#3EFFE2
+hi cLogicalOperatorError ctermfg=darkcyan guifg=#3EFFE2
+hi cOperators ctermfg=darkcyan
+
+hi Comment term=bold ctermfg=darkgrey guifg=grey40
+hi Statement guifg=CornflowerBlue ctermfg=darkblue
+syn keyword cFunction bfstree
+syn keyword Statement if
+syn keyword cType node
+" vim: ts=8
