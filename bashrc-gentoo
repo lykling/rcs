@@ -49,6 +49,6 @@ export VMAIL_BROWSER='w3m'
 
 HISTFILESIZE=1000000
 HISTSIZE=1000000
-HOSTIGNORE="&:[]*"
+HOSTIGNORE="&:[ ]*"
 
 # Put your fun stuff here.
