@@ -11,8 +11,8 @@ colorscheme desert
 
 set nocompatible
 
-#set bsdir=buffer
-set autochdir
+set bsdir=buffer
+"set autochdir
 
 "set enc=utf-8
 "set fenc=utf-8
