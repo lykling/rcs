@@ -23,26 +23,33 @@ source $VIMRUNTIME/menu.vim
 
 syntax enable
 syntax on
+filetype plugin indent on
+filetype on
+
+set nu
+set showmatch
+set hlsearch
+set hls is
+set incsearch
+set ruler
+"set mouse=a
+set mouse=h
+set backspace=2
 
 set ai
 set si
 set cindent
-
-set nu
-set hlsearch
-set hls is
-set incsearch
-
 "set cindent shiftwidth=4
 "set autoindent shiftwidth=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set foldmethod=indent
+"set formatoptions=roctq
+set formatoptions=tcrqn
 autocmd filetype c,cpp set tabstop=2
 autocmd filetype c,cpp set shiftwidth=2
-"set mouse=a
-set mouse=h
-set backspace=2
+autocmd filetype make set noexpandtab
 
 set comments=://
 set comments=:s1:/*,mb:*,ex0:/
@@ -52,9 +59,6 @@ set tags=./tags,./../tags,./../../tags,./**/tags
 set fileformats=unix,dos
 
 set cmdheight=1
-
-filetype plugin indent on
-filetype on
 
 """"""""""""""""""""""
 " comments
@@ -69,6 +73,7 @@ autocmd filetype vim map <buffer> ;/ :s/\( *<tab>*\)/\1"/<cr>:noh<cr>
 autocmd filetype vim map <buffer> ;? :s/\( *<tab>*\)"/\1/<cr>:noh<cr>
 autocmd filetype tex map <buffer> ;/ :s/\(.*\)/\%\1/<cr>:noh<cr>
 autocmd filetype tex map <buffer> ;? :s/^%\(.*\)/\1/<cr>:noh<cr>
+nmap ;;// O/**<cr><cr><left>/<up> 
 
 """"""""""""""""""""""
 " syntax
@@ -104,6 +109,8 @@ map <F2> ggVG"+Y
 map ;<F2> ggVG"+P
 map <F3> :NERDTreeMirror<cr>
 map <F4> :NERDTreeToggle<cr>
+map <s-insert> <middlemouse>
+map! <s-insert> <middlemouse>
 autocmd filetype java map <buffer> <F11> :JavaBrowser<cr>
 autocmd filetype java imap <buffer> <F11> <ESC><F11>
 
