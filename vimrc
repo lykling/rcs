@@ -45,6 +45,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set foldmethod=indent
+set foldlevel=10
 "set formatoptions=roctq
 set formatoptions=tcrqn
 autocmd filetype c,cpp set tabstop=2
@@ -140,7 +141,7 @@ let JavaBrowser_Ctags_Cmd = '/usr/bin/ctags'
 let JavaBrowser_Use_Icon = 1
 let JavaBrowser_Use_Highlight_Tag = 1
 
-let b:javascript_fold=1
+"let b:javascript_fold=1
 let javascript_enable_domhtmlcss=1
 "autocmd filetype javascript setlocal foldlevel=1
 let Tlist_js_settings = 'javascript;s:string;a:array;o:object;f:function'
