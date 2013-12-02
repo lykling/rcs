@@ -11,7 +11,7 @@ colorscheme desert
 
 set nocompatible
 
-set bsdir=buffer
+"set bsdir=buffer
 "set autochdir
 
 "set enc=utf-8
@@ -45,15 +45,13 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set foldmethod=indent
-set foldlevel=10
+set nofoldenable
+"set foldlevel=20
 "set formatoptions=roctq
 set formatoptions=tcrqn
 autocmd filetype c,cpp set tabstop=2
 autocmd filetype c,cpp set shiftwidth=2
 autocmd filetype make set noexpandtab
-
-set comments=://
-set comments=:s1:/*,mb:*,ex0:/
 
 set tags=./tags,./../tags,./../../tags,./**/tags
 
@@ -64,6 +62,9 @@ set cmdheight=1
 """"""""""""""""""""""
 " comments
 """"""""""""""""""""""
+set comments=://
+set comments=:s1:/*,mb:*,ex0:/
+
 autocmd filetype c,css,javascript,java map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
 autocmd filetype c,css,javascript,java map <buffer> ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
 autocmd filetype html,htmldjango map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1<!-- \2 -->/<cr>:noh<cr>
@@ -75,6 +76,26 @@ autocmd filetype vim map <buffer> ;? :s/\( *<tab>*\)"/\1/<cr>:noh<cr>
 autocmd filetype tex map <buffer> ;/ :s/\(.*\)/\%\1/<cr>:noh<cr>
 autocmd filetype tex map <buffer> ;? :s/^%\(.*\)/\1/<cr>:noh<cr>
 nmap ;;// O/**<cr><cr><left>/<up> 
+
+func! JSCommentHead()
+    call setline(1, '/**')
+    call append(1, '* Copyright (C) '.strftime('%Y').' All rights reserved.')
+    call append(2, '* ')
+    call append(3, '* @file ')
+    call append(4, '* @author NO.39<leafyou@leafyou.com>')
+    call append(5, '*/')
+endfunc
+autocmd filetype javascript nmap <buffer> <F6> :call JSCommentHead()<cr>:1<cr>=6=:4<cr>A
+func! JSComment()
+    call append(line('.')-1, '')
+    call setline(line('.')-1, '/**')
+    call append(line('.')-1, '* @description ')
+    call append(line('.')-1, '* @param ')
+    call append(line('.')-1, '* @return ')
+    call append(line('.')-1, '* @author NO.39<leafyou@leafyou.com>')
+    call append(line('.')-1, '*/')
+endfunc
+autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
 
 """"""""""""""""""""""
 " syntax
@@ -149,3 +170,20 @@ let Tlist_js_settings = 'javascript;s:string;a:array;o:object;f:function'
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
+
+""""""""""""""""""""""
+" mark.vim
+""""""""""""""""""""""
+nmap <c-m> \m
+
+
+""""""""""""""""""""""
+" snapshots
+""""""""""""""""""""""
+
+func! JSModule()
+    call append(line('.')+0, 'define(function(require) {')
+    call append(line('.')+1, '')
+    call append(line('.')+2, '});')
+endfunc
+autocmd filetype javascript map <buffer> <F8> :call JSModule()<cr>j=3=jS
