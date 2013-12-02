@@ -9,14 +9,10 @@
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
-
-source /etc/profile
-
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return
 fi
-
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -50,5 +46,7 @@ export VMAIL_BROWSER='w3m'
 HISTFILESIZE=1000000
 HISTSIZE=1000000
 HOSTIGNORE="&:[ ]*"
+
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/i686-pc-linux-gnu/gcc-bin/4.7.3
 
 # Put your fun stuff here.
