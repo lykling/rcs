@@ -65,8 +65,8 @@ set cmdheight=1
 set comments=://
 set comments=:s1:/*,mb:*,ex0:/
 
-autocmd filetype c,css,javascript,java map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
-autocmd filetype c,css,javascript,java map <buffer> ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
+autocmd filetype c,css,javascript,java,less map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
+autocmd filetype c,css,javascript,java,less map <buffer> ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
 autocmd filetype html,htmldjango map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1<!-- \2 -->/<cr>:noh<cr>
 autocmd filetype html,htmldjango map <buffer> ;? :s/<!-- \(.*\) -->/\1/<cr>:noh<cr>
 autocmd filetype sh,python map <buffer> ;/ :s/\( *<tab>*\)/\1#/<cr>:noh<cr>
