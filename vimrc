@@ -65,8 +65,8 @@ set cmdheight=1
 set comments=://
 set comments=:s1:/*,mb:*,ex0:/
 
-autocmd filetype c,css,javascript,java,less map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
-autocmd filetype c,css,javascript,java,less map <buffer> ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
+autocmd filetype go,c,css,javascript,java,less map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
+autocmd filetype go,c,css,javascript,java,less map <buffer> ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
 autocmd filetype html,htmldjango map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1<!-- \2 -->/<cr>:noh<cr>
 autocmd filetype html,htmldjango map <buffer> ;? :s/<!-- \(.*\) -->/\1/<cr>:noh<cr>
 autocmd filetype sh,python map <buffer> ;/ :s/\( *<tab>*\)/\1#/<cr>:noh<cr>
@@ -117,8 +117,9 @@ else
 	autocmd filetype expect map <buffer> <F9> :!expect %<cr>
 	autocmd filetype sh map <buffer> <F9> :!sh %<cr>
 	autocmd filetype asm map <buffer> <F9> :!nasm % -o%:r<cr>
+    autocmd filetype go map <buffer> <F9> :!go build %<cr>
 
-	autocmd filetype c,cpp,pascal map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
+	autocmd filetype c,cpp,pascal,go map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
 	autocmd filetype java map <buffer> ;<F9> :!java %:r<cr>
 endif
 
