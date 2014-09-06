@@ -1,0 +1,17 @@
+alias ls='ls -G'
+alias grep='grep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias govim='GOPATH=`pwd` vim'
+
+function wiki() { dig +short txt $1.wp.dg.cx; }
+
+export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HOSTIGNORE="&:[ ]*"
+
+export PATH=~/bin:/usr/local/bin:$PATH
+export NODE_PATH=/usr/local/lib/node_modules/
