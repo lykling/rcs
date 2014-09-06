@@ -82,7 +82,7 @@ func! JSCommentHead()
     call append(1, '* Copyright (C) '.strftime('%Y').' All rights reserved.')
     call append(2, '* ')
     call append(3, '* @file ')
-    call append(4, '* @author NO.39<leafyou@leafyou.com>')
+    call append(4, '* @author Pride Leong<leafyou@leafyou.me>')
     call append(5, '*/')
 endfunc
 autocmd filetype javascript nmap <buffer> <F6> :call JSCommentHead()<cr>:1<cr>=6=:4<cr>A
@@ -92,10 +92,13 @@ func! JSComment()
     call append(line('.')-1, '* @description ')
     call append(line('.')-1, '* @param ')
     call append(line('.')-1, '* @return ')
-    call append(line('.')-1, '* @author NO.39<leafyou@leafyou.com>')
+    call append(line('.')-1, '* @author Pride Leong<leafyou@leafyou.me>')
     call append(line('.')-1, '*/')
 endfunc
 autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
+func! ReplaceMail()
+    %s/<leafyou@leafyou.me>/(liangjinping@baidu.com)/g
+endfunc
 
 """"""""""""""""""""""
 " syntax
@@ -175,7 +178,7 @@ let Tlist_Exit_OnlyWindow = 1
 """"""""""""""""""""""
 " mark.vim
 """"""""""""""""""""""
-nmap <c-m> \m
+"nmap <c-m> \m
 
 
 """"""""""""""""""""""
@@ -183,7 +186,7 @@ nmap <c-m> \m
 """"""""""""""""""""""
 
 func! JSModule()
-    call append(line('.')+0, 'define(function(require) {')
+    call append(line('.')+0, 'define(function (require, exports, module) {')
     call append(line('.')+1, '')
     call append(line('.')+2, '});')
 endfunc
