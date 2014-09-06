@@ -133,8 +133,6 @@ map <c-p> :tabprevious<cr>
 map <c-n> :tabnext<cr>
 map <F2> ggVG"+Y
 map ;<F2> ggVG"+P
-map <F3> :NERDTreeMirror<cr>
-map <F4> :NERDTreeToggle<cr>
 map <s-insert> <middlemouse>
 map! <s-insert> <middlemouse>
 autocmd filetype java map <buffer> <F11> :JavaBrowser<cr>
@@ -179,6 +177,7 @@ let Tlist_Exit_OnlyWindow = 1
 " mark.vim
 """"""""""""""""""""""
 "nmap <c-m> \m
+"nmap <c-/> \m
 
 
 """"""""""""""""""""""
@@ -191,3 +190,26 @@ func! JSModule()
     call append(line('.')+2, '});')
 endfunc
 autocmd filetype javascript map <buffer> <F8> :call JSModule()<cr>j=3=jS
+
+""""""""""""""""""""""
+" go-vim
+""""""""""""""""""""""
+set runtimepath^=~/.vim/bundle/vim-go
+
+""""""""""""""""""""""
+" ctrlp
+""""""""""""""""""""""
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swo,*.swp,*.zip
+let g:ctrlp_map = ',,'
+let g:ctrlp_custom_ignore = {
+            \   'dir':  '\v[\/]\.(git)$',
+            \  'file': '\v\.(jpg|jpeg|log|png)$',
+            \}
+
+""""""""""""""""""""""
+" NERDTree
+""""""""""""""""""""""
+map <F3> :NERDTreeMirror<cr>
+map <F4> :NERDTreeToggle<cr>
+map <C-x> :NERDTreeFind<cr>
