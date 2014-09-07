@@ -23,8 +23,18 @@ source $VIMRUNTIME/menu.vim
 
 syntax enable
 syntax on
+
+""""""""""""""""""""""
+" Vundle
+""""""""""""""""""""""
+" required by Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'  
+Bundle 'fatih/vim-go'
+Bundle 'kien/ctrlp.vim'
 filetype plugin indent on
-filetype on
 
 set nu
 set showmatch
@@ -194,12 +204,12 @@ autocmd filetype javascript map <buffer> <F8> :call JSModule()<cr>j=3=jS
 """"""""""""""""""""""
 " go-vim
 """"""""""""""""""""""
-set runtimepath^=~/.vim/bundle/vim-go
+"set runtimepath^=~/.vim/bundle/vim-go
 
 """"""""""""""""""""""
 " ctrlp
 """"""""""""""""""""""
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swo,*.swp,*.zip
 let g:ctrlp_map = ',,'
 let g:ctrlp_custom_ignore = {
