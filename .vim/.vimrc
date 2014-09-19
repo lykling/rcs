@@ -205,6 +205,11 @@ autocmd filetype javascript map <buffer> <F8> :call JSModule()<cr>j=3=jS
 " go-vim
 """"""""""""""""""""""
 "set runtimepath^=~/.vim/bundle/vim-go
+autocmd filetype go setlocal expandtab
+let g:go_fmt_autosave = 1
+"let g:go_fmt_fail_silently = 1
+"let g:go_fmt_command = "gofmt"
+"let g:go_fmt_options = '-d=false -e=false -w=true -r="	->    "'
 
 """"""""""""""""""""""
 " ctrlp
