@@ -4,6 +4,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias govim='GOPATH=`pwd` vim'
+alias sedp='node ~/Development/edp/runtime/bin/edp-cli'
 
 function wiki() { dig +short txt $1.wp.dg.cx; }
 

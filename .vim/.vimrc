@@ -56,6 +56,8 @@ set shiftwidth=4
 set expandtab
 set foldmethod=indent
 set nofoldenable
+set cc=80
+hi ColorColumn ctermbg=cyan
 "set foldlevel=20
 "set formatoptions=roctq
 set formatoptions=tcrqn
