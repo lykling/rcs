@@ -31,7 +31,7 @@ syntax on
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'  
+Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
 Bundle 'kien/ctrlp.vim'
 filetype plugin indent on
@@ -57,7 +57,9 @@ set expandtab
 set foldmethod=indent
 set nofoldenable
 set cc=80
-hi ColorColumn ctermbg=cyan
+hi ColorColumn ctermbg=18 guibg=#073642
+set list
+set listchars=tab:..,trail:.
 "set foldlevel=20
 "set formatoptions=roctq
 set formatoptions=tcrqn
@@ -208,6 +210,7 @@ autocmd filetype javascript map <buffer> <F8> :call JSModule()<cr>j=3=jS
 """"""""""""""""""""""
 "set runtimepath^=~/.vim/bundle/vim-go
 autocmd filetype go setlocal expandtab
+autocmd filetype go set nolist
 let g:go_fmt_autosave = 1
 "let g:go_fmt_fail_silently = 1
 "let g:go_fmt_command = "gofmt"
@@ -230,3 +233,13 @@ let g:ctrlp_custom_ignore = {
 map <F3> :NERDTreeMirror<cr>
 map <F4> :NERDTreeToggle<cr>
 map <C-x> :NERDTreeFind<cr>
+
+""""""""""""""""""""""
+" indentLine
+""""""""""""""""""""""
+hi Conceal ctermfg=239 guifg=Grey30 ctermbg=0 guibg=dark
+
+""""""""""""""""""""""
+" list
+""""""""""""""""""""""
+hi SpecialKey ctermfg=236
