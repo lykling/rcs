@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/vundle"]
 	path = .vim/bundle/vundle
 	url = git@github.com:gmarik/vundle.git
+[submodule ".vim/bundle/indentLine"]
+	path = .vim/bundle/indentLine
+	url = git@github.com:Yggdroot/indentLine.git

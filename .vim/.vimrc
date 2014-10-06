@@ -34,6 +34,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Yggdroot/indentLine'
 filetype plugin indent on
 
 set nu
