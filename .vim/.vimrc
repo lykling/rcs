@@ -35,6 +35,8 @@ Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Yggdroot/indentLine'
+Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 filetype plugin indent on
 
 set nu
@@ -97,7 +99,7 @@ func! JSCommentHead()
     call append(1, '* Copyright (C) '.strftime('%Y').' All rights reserved.')
     call append(2, '* ')
     call append(3, '* @file ')
-    call append(4, '* @author Pride Leong<leafyou@leafyou.me>')
+    call append(4, '* @author Pride Leong<foliage@iooy.cc>')
     call append(5, '*/')
 endfunc
 autocmd filetype javascript nmap <buffer> <F6> :call JSCommentHead()<cr>:1<cr>=6=:4<cr>A
@@ -112,7 +114,7 @@ func! JSComment()
 endfunc
 autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
 func! ReplaceMail()
-    %s/<leafyou@leafyou.me>/(liangjinping@baidu.com)/g
+    %s/<foliage@iooy.cc>/(liangjinping@baidu.com)/g
 endfunc
 
 """"""""""""""""""""""
@@ -193,6 +195,7 @@ let Tlist_Exit_OnlyWindow = 1
 """"""""""""""""""""""
 "nmap <c-m> \m
 "nmap <c-/> \m
+map m <Plug>MarkSet
 
 
 """"""""""""""""""""""
@@ -239,6 +242,11 @@ map <C-x> :NERDTreeFind<cr>
 " indentLine
 """"""""""""""""""""""
 hi Conceal ctermfg=239 guifg=Grey30 ctermbg=0 guibg=dark
+
+""""""""""""""""""""""
+" ag.vim
+""""""""""""""""""""""
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 """"""""""""""""""""""
 " list
