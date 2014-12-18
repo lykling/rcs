@@ -4,6 +4,7 @@
 " Usage: 	copy this file to home directory
 
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 "colo murphy
 "colorscheme default
@@ -213,8 +214,9 @@ autocmd filetype javascript map <buffer> <F8> :call JSModule()<cr>j=3=jS
 " go-vim
 """"""""""""""""""""""
 "set runtimepath^=~/.vim/bundle/vim-go
-autocmd filetype go setlocal expandtab
-autocmd filetype go set nolist
+autocmd filetype go setlocal list
+autocmd filetype go setlocal listchars=tab:¦\ 
+autocmd filetype go setlocal noexpandtab
 let g:go_fmt_autosave = 1
 "let g:go_fmt_fail_silently = 1
 "let g:go_fmt_command = "gofmt"
@@ -242,11 +244,12 @@ map <C-x> :NERDTreeFind<cr>
 " indentLine
 """"""""""""""""""""""
 hi Conceal ctermfg=239 guifg=Grey30 ctermbg=0 guibg=dark
+let g:indentLine_faster = 1
 
 """"""""""""""""""""""
 " ag.vim
 """"""""""""""""""""""
-let g:ackprg = 'ag --nogroup --nocolor --column'
+"let g:ackprg = 'ag --nogroup --nocolor --column'
 
 """"""""""""""""""""""
 " list
