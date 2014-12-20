@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
 	url = git@github.com:rking/ag.vim
+[submodule ".vim/bundle/fecs.vim"]
+	path = .vim/bundle/fecs.vim
+	url = git@github.com:lykling/fecs.vim

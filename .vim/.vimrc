@@ -38,6 +38,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
+Bundle 'lykling/fecs.vim'
 filetype plugin indent on
 
 set nu
