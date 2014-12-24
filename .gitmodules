@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/fecs.vim"]
 	path = .vim/bundle/fecs.vim
 	url = git@github.com:lykling/fecs.vim
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git

@@ -39,6 +39,7 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'lykling/fecs.vim'
+Bundle 'vim-ruby/vim-ruby'
 filetype plugin indent on
 
 set nu
@@ -101,7 +102,7 @@ func! JSCommentHead()
     call append(1, '* Copyright (C) '.strftime('%Y').' All rights reserved.')
     call append(2, '* ')
     call append(3, '* @file ')
-    call append(4, '* @author Pride Leong<foliage@iooy.cc>')
+    call append(4, '* @author Pride Leong<lykling.lyk@gmail.com>')
     call append(5, '*/')
 endfunc
 autocmd filetype javascript nmap <buffer> <F6> :call JSCommentHead()<cr>:1<cr>=6=:4<cr>A
@@ -116,7 +117,7 @@ func! JSComment()
 endfunc
 autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
 func! ReplaceMail()
-    %s/<foliage@iooy.cc>/(liangjinping@baidu.com)/g
+    %s/<lykling.lyk@gmail.com>/(liangjinping@baidu.com)/g
 endfunc
 
 """"""""""""""""""""""
@@ -152,6 +153,10 @@ map <c-p> :tabprevious<cr>
 map <c-n> :tabnext<cr>
 map <F2> ggVG"+Y
 map ;<F2> ggVG"+P
+nmap <S-right> :vertical resize +1<cr>
+nmap <S-left> :vertical resize -1<cr>
+nmap <S-up> :resize +1<cr>
+nmap <S-down> :resize -1<cr>
 map <s-insert> <middlemouse>
 map! <s-insert> <middlemouse>
 autocmd filetype java map <buffer> <F11> :JavaBrowser<cr>
