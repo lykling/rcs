@@ -1,24 +1,24 @@
 [submodule "ctrlp.vim"]
     path = .vim/bundle/ctrlp.vim
-    url = git@github.com:kien/ctrlp.vim.git
+    url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim-go"]
     path = .vim/bundle/vim-go
-    url = git@github.com:fatih/vim-go.git
+    url = https://github.com/fatih/vim-go.git
 [submodule ".vim/bundle/vundle"]
 	path = .vim/bundle/vundle
-	url = git@github.com:gmarik/vundle.git
+	url = https://github.com/gmarik/vundle.git
 [submodule ".vim/bundle/indentLine"]
 	path = .vim/bundle/indentLine
-	url = git@github.com:Yggdroot/indentLine.git
+	url = https://github.com/Yggdroot/indentLine.git
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
-	url = git@github.com:mileszs/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
-	url = git@github.com:rking/ag.vim
+	url = https://github.com/rking/ag.vim
 [submodule ".vim/bundle/fecs.vim"]
 	path = .vim/bundle/fecs.vim
-	url = git@github.com:lykling/fecs.vim
+	url = https://github.com/lykling/fecs.vim
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
