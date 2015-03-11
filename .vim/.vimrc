@@ -69,8 +69,8 @@ set listchars=tab:..,trail:.
 "set foldlevel=20
 "set formatoptions=roctq
 set formatoptions=tcrqn
-autocmd filetype c,cpp set tabstop=2
-autocmd filetype c,cpp set shiftwidth=2
+autocmd filetype c,cpp,ruby set tabstop=2
+autocmd filetype c,cpp,ruby set shiftwidth=2
 autocmd filetype make set noexpandtab
 
 set tags=./tags,./../tags,./../../tags,./**/tags
@@ -244,7 +244,7 @@ let g:ctrlp_custom_ignore = {
 """"""""""""""""""""""
 map <F3> :NERDTreeMirror<cr>
 map <F4> :NERDTreeToggle<cr>
-map <C-x> :NERDTreeFind<cr>
+map <S-x> :NERDTreeFind<cr>
 
 """"""""""""""""""""""
 " indentLine
