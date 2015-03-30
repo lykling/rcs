@@ -8,7 +8,27 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 "colo murphy
 "colorscheme default
-colorscheme desert
+"colorscheme desert
+"colorscheme blue
+"colorscheme darkblue
+"colorscheme default
+"colorscheme delek
+"colorscheme desert
+"colorscheme elflord
+"colorscheme evening
+"colorscheme industry
+"colorscheme koehler
+"colorscheme morning
+"colorscheme murphy
+"colorscheme pablo
+"colorscheme peachpuff
+"colorscheme ron
+"colorscheme shine
+"colorscheme slate
+"colorscheme torte
+"colorscheme zellner
+
+colorscheme leaf
 
 set nocompatible
 
@@ -40,6 +60,9 @@ Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'lykling/fecs.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'moll/vim-node'
+Bundle 'othree/html5.vim'
+Bundle 'groenewege/vim-less'
 filetype plugin indent on
 
 set nu
