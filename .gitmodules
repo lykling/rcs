@@ -29,7 +29,7 @@
     path = .vim/bundle/vim-less
     url = https://github.com/groenewege/vim-less.git
 [submodule ".vim/bundle/vim-node.vim"]
-    path = .vim/bundle/vim-node.vim
+    path = .vim/bundle/vim-node
     url = https://github.com/moll/vim-node.git
 [submodule ".vim/bundle/LeaderF"]
     path = .vim/bundle/LeaderF
