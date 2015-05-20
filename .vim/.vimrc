@@ -124,7 +124,7 @@ nmap ;;// O/**<cr><cr><left>/<up>
 func! JSCommentHead()
     call setline(1, '/**')
     call append(1, '* Copyright (C) '.strftime('%Y').' All rights reserved.')
-    call append(2, '* ')
+    call append(2, '*')
     call append(3, '* @file ')
     call append(4, '* @author Pride Leong<lykling.lyk@gmail.com>')
     call append(5, '*/')
@@ -136,7 +136,7 @@ func! JSComment()
     call append(line('.')-1, '* @description ')
     call append(line('.')-1, '* @param ')
     call append(line('.')-1, '* @return ')
-    call append(line('.')-1, '* @author Pride Leong<leafyou@leafyou.me>')
+    call append(line('.')-1, '* @author Pride Leong<foliage@iooy.cc>')
     call append(line('.')-1, '*/')
 endfunc
 autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
