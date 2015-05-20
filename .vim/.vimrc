@@ -104,6 +104,12 @@ set fileformats=unix,dos
 set cmdheight=1
 
 """"""""""""""""""""""
+" tools
+""""""""""""""""""""""
+" Rename
+command! -nargs=1 Rename let tpname = expand('%') | saveas %:h/<args> | edit %:h/<args> | call delete(expand(tpname))
+
+""""""""""""""""""""""
 " comments
 """"""""""""""""""""""
 set comments=://
@@ -124,7 +130,7 @@ nmap ;;// O/**<cr><cr><left>/<up>
 func! JSCommentHead()
     call setline(1, '/**')
     call append(1, '* Copyright (C) '.strftime('%Y').' All rights reserved.')
-    call append(2, '* ')
+    call append(2, '*')
     call append(3, '* @file ')
     call append(4, '* @author Pride Leong<lykling.lyk@gmail.com>')
     call append(5, '*/')
