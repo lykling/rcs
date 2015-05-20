@@ -104,6 +104,12 @@ set fileformats=unix,dos
 set cmdheight=1
 
 """"""""""""""""""""""
+" tools
+""""""""""""""""""""""
+" Rename
+command! -nargs=1 Rename let tpname = expand('%') | saveas %:h/<args> | edit %:h/<args> | call delete(expand(tpname))
+
+""""""""""""""""""""""
 " comments
 """"""""""""""""""""""
 set comments=://
