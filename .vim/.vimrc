@@ -64,6 +64,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'moll/vim-node'
 Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
+"Bundle 'tpope/vim-markdown'
 filetype plugin indent on
 
 set nu
@@ -254,6 +255,7 @@ autocmd filetype go setlocal list
 autocmd filetype go setlocal listchars=tab:¦\ 
 autocmd filetype go setlocal noexpandtab
 let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
 "let g:go_fmt_fail_silently = 1
 "let g:go_fmt_command = "gofmt"
 "let g:go_fmt_options = '-d=false -e=false -w=true -r="	->    "'
