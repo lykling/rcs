@@ -65,6 +65,7 @@ Bundle 'moll/vim-node'
 Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
 "Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/nerdtree'
 filetype plugin indent on
 
 set nu
