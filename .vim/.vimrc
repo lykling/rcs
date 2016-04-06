@@ -31,6 +31,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 colorscheme leaf
 
 set nocompatible
+set noundofile
 
 "set bsdir=buffer
 "set autochdir
@@ -101,6 +102,7 @@ set formatoptions=tcrqn
 autocmd filetype c,cpp,ruby set tabstop=2
 autocmd filetype c,cpp,ruby set shiftwidth=2
 autocmd filetype make set noexpandtab
+autocmd filetype c,cpp,ruby,go,css,javascript,java,less,html,sh,python,tex,vim,htmldjango set expandtab
 
 set tags=./tags,./../tags,./../../tags,./**/tags
 
