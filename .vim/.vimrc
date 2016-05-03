@@ -70,6 +70,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'mxw/vim-jsx'
 "Bundle 'StanAngeloff/php.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
 filetype plugin indent on
 
 set nu
