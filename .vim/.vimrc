@@ -63,11 +63,12 @@ Bundle 'rking/ag.vim'
 Bundle 'lykling/fecs.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'moll/vim-node'
-Bundle 'othree/html5.vim'
+Bundle 'mxw/vim-jsx'
+Bundle 'pangloss/vim-javascript'
 Bundle 'isRuslan/vim-es6'
+Bundle 'othree/html5.vim'
 Bundle 'groenewege/vim-less'
 "Bundle 'tpope/vim-markdown'
-Bundle 'mxw/vim-jsx'
 "Bundle 'StanAngeloff/php.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
@@ -300,3 +301,8 @@ let g:indentLine_faster = 1
 " list
 """"""""""""""""""""""
 hi SpecialKey ctermfg=236
+
+""""""""""""""""""""""
+" vim-javascript
+""""""""""""""""""""""
+"let g:javascript_ignore_javaScriptdoc = 1
