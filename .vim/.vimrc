@@ -55,12 +55,14 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
+Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'Yggdroot/LeaderF'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
-Bundle 'lykling/fecs.vim'
+"Bundle 'lykling/fecs.vim'
+Bundle 'hushicai/fecs.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'moll/vim-node'
 Bundle 'mxw/vim-jsx'
@@ -306,3 +308,27 @@ hi SpecialKey ctermfg=236
 " vim-javascript
 """"""""""""""""""""""
 "let g:javascript_ignore_javaScriptdoc = 1
+
+""""""""""""""""""""""
+" hushicai/fecs.vim
+""""""""""""""""""""""
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_mode_map = {'mode': 'passive'} 
+" nmap <silent> <F5> :SyntasticCheck<cr>
+let g:syntastic_javascript_checkers = ['fecs']
+let g:syntastic_javascript_fecs_args = "--reporter=baidu"
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+
+""""""""""""""""""""""
+" scrooloose/syntastic
+""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
