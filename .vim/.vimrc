@@ -322,9 +322,10 @@ let g:syntastic_warning_symbol = "⚠"
 """"""""""""""""""""""
 " scrooloose/syntastic
 """"""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+set statusline=%<\ %n:%f\ %m%r%y%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
