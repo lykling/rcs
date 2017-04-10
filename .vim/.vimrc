@@ -74,6 +74,7 @@ Bundle 'groenewege/vim-less'
 "Bundle 'StanAngeloff/php.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
+Bundle 'suan/vim-instant-markdown'
 filetype plugin indent on
 
 set nu
@@ -164,7 +165,7 @@ endfunc
 """"""""""""""""""""""
 " syntax
 """"""""""""""""""""""
-autocmd filetype c imap <buffer> {} {<cr>}<up><end><cr>
+"autocmd filetype c imap <buffer> {} {<cr>}<up><end><cr>
 autocmd filetype c imap <buffer> // /*  */<left><left><left>
 
 """"""""""""""""""""""
