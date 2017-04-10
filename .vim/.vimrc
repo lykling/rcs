@@ -291,7 +291,7 @@ map <S-x> :NERDTreeFind<cr>
 """"""""""""""""""""""
 " indentLine
 """"""""""""""""""""""
-hi Conceal ctermfg=239 guifg=Grey30 ctermbg=0 guibg=dark
+hi Conceal ctermfg=239 guifg=Grey30 ctermbg=0 guibg=black
 let g:indentLine_faster = 1
 
 """"""""""""""""""""""
