@@ -315,7 +315,7 @@ hi SpecialKey ctermfg=236
 """"""""""""""""""""""
 " let g:syntastic_mode_map = {'mode': 'passive'} 
 " nmap <silent> <F5> :SyntasticCheck<cr>
-let g:syntastic_javascript_checkers = ['fecs']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_fecs_args = "--reporter=baidu"
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
