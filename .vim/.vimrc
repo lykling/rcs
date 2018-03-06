@@ -31,7 +31,11 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 colorscheme leaf
 
 set nocompatible
-set noundofile
+"set noundofile
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
 
 "set bsdir=buffer
 "set autochdir
@@ -53,6 +57,7 @@ syntax on
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'mbbill/undotree'
 Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
@@ -337,3 +342,9 @@ let g:syntastic_check_on_wq = 0
 " klen/python-mode
 """"""""""""""""""""""
 let g:pymode_rope = 0
+
+
+""""""""""""""""""""""
+" mbbill/undotree
+""""""""""""""""""""""
+nnoremap <F5> :UndotreeToggle<cr>
