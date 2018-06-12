@@ -6,30 +6,6 @@
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-"colo murphy
-"colorscheme default
-"colorscheme desert
-"colorscheme blue
-"colorscheme darkblue
-"colorscheme default
-"colorscheme delek
-"colorscheme desert
-"colorscheme elflord
-"colorscheme evening
-"colorscheme industry
-"colorscheme koehler
-"colorscheme morning
-"colorscheme murphy
-"colorscheme pablo
-"colorscheme peachpuff
-"colorscheme ron
-"colorscheme shine
-"colorscheme slate
-"colorscheme torte
-"colorscheme zellner
-
-colorscheme leaf
-
 set nocompatible
 "set noundofile
 if has("persistent_undo")
@@ -57,6 +33,7 @@ syntax on
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'mbbill/undotree'
 Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
@@ -81,6 +58,32 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'suan/vim-instant-markdown'
 filetype plugin indent on
+
+"colo murphy
+"colorscheme default
+"colorscheme desert
+"colorscheme blue
+"colorscheme darkblue
+"colorscheme default
+"colorscheme delek
+"colorscheme desert
+"colorscheme elflord
+"colorscheme evening
+"colorscheme industry
+"colorscheme koehler
+"colorscheme morning
+"colorscheme murphy
+"colorscheme pablo
+colorscheme peachpuff
+"colorscheme ron
+"colorscheme shine
+"colorscheme slate
+"colorscheme torte
+"colorscheme zellner
+
+"set background=dark
+"colorscheme solarized
+"colorscheme neon
 
 set nu
 set showmatch
