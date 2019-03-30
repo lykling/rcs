@@ -116,6 +116,7 @@ autocmd filetype c,cpp,ruby set tabstop=2
 autocmd filetype c,cpp,ruby set shiftwidth=2
 autocmd filetype make set noexpandtab
 autocmd filetype c,cpp,ruby,go,css,javascript,java,less,html,sh,python,tex,vim,htmldjango set expandtab
+autocmd filetype json,markdown set conceallevel=0
 
 set tags=./tags,./../tags,./../../tags,./**/tags
 
@@ -302,6 +303,7 @@ map <S-x> :NERDTreeFind<cr>
 """"""""""""""""""""""
 hi Conceal ctermfg=239 guifg=Grey30 ctermbg=0 guibg=black
 let g:indentLine_faster = 1
+let g:indentLine_fileTypeExclude = ["json", "markdown"]
 
 """"""""""""""""""""""
 " ag.vim
