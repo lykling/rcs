@@ -112,8 +112,8 @@ set listchars=tab:..,trail:.
 "set foldlevel=20
 "set formatoptions=roctq
 set formatoptions=tcrqn
-autocmd filetype c,cpp,ruby set tabstop=2
-autocmd filetype c,cpp,ruby set shiftwidth=2
+autocmd filetype c,cpp,ruby,yaml set tabstop=2
+autocmd filetype c,cpp,ruby,yaml set shiftwidth=2
 autocmd filetype make set noexpandtab
 autocmd filetype c,cpp,ruby,go,css,javascript,java,less,html,sh,python,tex,vim,htmldjango set expandtab
 autocmd filetype json,markdown set conceallevel=0
