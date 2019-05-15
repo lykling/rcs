@@ -56,6 +56,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'rust-lang/rust.vim'
 call vundle#end()
 filetype plugin indent on
 
