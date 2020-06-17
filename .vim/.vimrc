@@ -46,17 +46,21 @@ Plugin 'rking/ag.vim'
 Plugin 'hushicai/fecs.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'moll/vim-node'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'isRuslan/vim-es6'
+"Plugin 'mxw/vim-jsx'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'isRuslan/vim-es6'
 Plugin 'othree/html5.vim'
 Plugin 'groenewege/vim-less'
+Plugin 'wavded/vim-stylus'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'StanAngeloff/php.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'rust-lang/rust.vim'
+Plugin 'yuezk/vim-js'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
 call vundle#end()
 filetype plugin indent on
 
@@ -354,3 +358,8 @@ let g:pymode_rope = 0
 " mbbill/undotree
 """"""""""""""""""""""
 nnoremap <F5> :UndotreeToggle<cr>
+
+""""""""""""""""""""""
+" leafgarland/typescript-vim
+""""""""""""""""""""""
+let g:typescript_indent_disable = 0
