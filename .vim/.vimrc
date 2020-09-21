@@ -7,6 +7,9 @@ autocmd! BufWritePost *.vimrc source $HOME/.vimrc
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 set exrc
 set secure
+autocmd BufRead scp://* :set bt=acwrite
+autocmd BufWritePost scp://* :set bt=acwrite
+
 
 set nocompatible
 "set noundofile
