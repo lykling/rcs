@@ -5,6 +5,8 @@
 
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+set exrc
+set secure
 
 set nocompatible
 "set noundofile
@@ -27,42 +29,106 @@ syntax enable
 syntax on
 
 """"""""""""""""""""""
-" Vundle
+" vim-plug
 """"""""""""""""""""""
-" required by Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'mbbill/undotree'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'Yggdroot/LeaderF'
-Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag.vim'
-"Plugin 'lykling/fecs.vim'
-Plugin 'hushicai/fecs.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'moll/vim-node'
-"Plugin 'mxw/vim-jsx'
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'isRuslan/vim-es6'
-Plugin 'othree/html5.vim'
-Plugin 'groenewege/vim-less'
-Plugin 'wavded/vim-stylus'
-"Plugin 'tpope/vim-markdown'
-"Plugin 'StanAngeloff/php.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'rust-lang/rust.vim'
-Plugin 'yuezk/vim-js'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'maxmellon/vim-jsx-pretty'
-call vundle#end()
-filetype plugin indent on
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+Plug 'mbbill/undotree'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'fatih/vim-go'
+"Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
+Plug 'kien/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/LeaderF'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+"Plug 'lykling/fecs.vim'
+Plug 'hushicai/fecs.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'moll/vim-node'
+"Plug 'mxw/vim-jsx'
+"Plug 'pangloss/vim-javascript'
+"Plug 'isRuslan/vim-es6'
+Plug 'othree/html5.vim'
+Plug 'groenewege/vim-less'
+Plug 'wavded/vim-stylus'
+"Plug 'tpope/vim-markdown'
+"Plug 'StanAngeloff/php.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'klen/python-mode'
+Plug 'suan/vim-instant-markdown'
+Plug 'rust-lang/rust.vim'
+Plug 'yuezk/vim-js'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'tpope/vim-unimpaired'
+call plug#end()
+
+""""""""""""""""""""""
+" gutentags
+""""""""""""""""""""""
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+"""""""""""""""""""""""
+"" Vundle
+"""""""""""""""""""""""
+"" required by Vundle
+"filetype off
+"set rtp+=~/.vim/bundle/Vundle.vim/
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'mbbill/undotree'
+"Plugin 'fatih/vim-go'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/LeaderF'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'rking/ag.vim'
+""Plugin 'lykling/fecs.vim'
+"Plugin 'hushicai/fecs.vim'
+"Plugin 'vim-ruby/vim-ruby'
+"Plugin 'moll/vim-node'
+""Plugin 'mxw/vim-jsx'
+""Plugin 'pangloss/vim-javascript'
+""Plugin 'isRuslan/vim-es6'
+"Plugin 'othree/html5.vim'
+"Plugin 'groenewege/vim-less'
+"Plugin 'wavded/vim-stylus'
+""Plugin 'tpope/vim-markdown'
+""Plugin 'StanAngeloff/php.vim'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'klen/python-mode'
+"Plugin 'suan/vim-instant-markdown'
+"Plugin 'rust-lang/rust.vim'
+"Plugin 'yuezk/vim-js'
+"Plugin 'leafgarland/typescript-vim'
+"Plugin 'maxmellon/vim-jsx-pretty'
+"call vundle#end()
+"filetype plugin indent on
 
 "colo murphy
 "colorscheme default
@@ -123,7 +189,8 @@ autocmd filetype make set noexpandtab
 autocmd filetype c,cpp,ruby,go,css,javascript,java,less,html,sh,python,tex,vim,htmldjango set expandtab
 autocmd filetype json,markdown set conceallevel=0
 
-set tags=./tags,./../tags,./../../tags,./**/tags
+"set tags=./tags,./../tags,./../../tags,./**/tags
+set tags=./.tags;,.tags
 
 set fileformats=unix,dos
 
