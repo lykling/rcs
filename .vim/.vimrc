@@ -28,6 +28,9 @@ set fencs=utf-8,ucs-bom,gb18030,gb2312,gbk,cp936
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+set swapfile
+set dir=~/.vim/.swap-files
+
 syntax enable
 syntax on
 
@@ -70,6 +73,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 """"""""""""""""""""""
@@ -250,7 +255,7 @@ endfunc
 " syntax
 """"""""""""""""""""""
 "autocmd filetype c imap <buffer> {} {<cr>}<up><end><cr>
-autocmd filetype c imap <buffer> // /*  */<left><left><left>
+"autocmd filetype c imap <buffer> // /*  */<left><left><left>
 
 """"""""""""""""""""""
 " program test
@@ -406,9 +411,15 @@ let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 
 """"""""""""""""""""""
+" vim-airline
+""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+""""""""""""""""""""""
 " scrooloose/syntastic
 """"""""""""""""""""""
-set statusline=%<\ %n:%f\ %m%r%y%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"set statusline=%<\ %n:%f\ %m%r%y%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
