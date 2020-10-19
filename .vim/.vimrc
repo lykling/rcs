@@ -14,7 +14,7 @@ autocmd BufWritePost scp://* :set bt=acwrite
 set nocompatible
 "set noundofile
 if has("persistent_undo")
-    set undodir=~/.undodir/
+    set undodir=~/.vim/.undodir/,/tmp//
     set undofile
 endif
 
@@ -29,7 +29,7 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 set swapfile
-set dir=~/.vim/.swap-files
+set dir=~/.vim/.swap-files//,/tmp//,./
 
 syntax enable
 syntax on
