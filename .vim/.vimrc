@@ -76,6 +76,8 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 call plug#end()
 
 """"""""""""""""""""""
@@ -262,20 +264,20 @@ endfunc
 " program test
 """"""""""""""""""""""
 if filereadable("Makefile")
-	map <F9> :!make<cr>
+    map <F9> :!make<cr>
 else
-	autocmd filetype c map <buffer> <F9> :!gcc -lm -g % -Wall -o %:r<cr>
-	autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g % -Wall -o %:r<cr>
-	autocmd filetype pascal map <buffer> <F9> :!gpc  -g % -Wall -o%:r<cr>
-	autocmd filetype java map <buffer> <F9> :!javac %<cr>
-	autocmd filetype python map <buffer> <F9> :!python %<cr>
-	autocmd filetype expect map <buffer> <F9> :!expect %<cr>
-	autocmd filetype sh map <buffer> <F9> :!sh %<cr>
-	autocmd filetype asm map <buffer> <F9> :!nasm % -o%:r<cr>
-    autocmd filetype go map <buffer> <F9> :!go build %<cr>
+    autocmd filetype c map <buffer> <F9> :!gcc -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
+    autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g "%" -Wall -o "%:r"<cr>
+    autocmd filetype pascal map <buffer> <F9> :!gpc  -g "%" -Wall -o "%:r"<cr>
+    autocmd filetype java map <buffer> <F9> :!javac "%"<cr>
+    autocmd filetype python map <buffer> <F9> :!python "%"<cr>
+    autocmd filetype expect map <buffer> <F9> :!expect "%"<cr>
+    autocmd filetype sh map <buffer> <F9> :!sh "%"<cr>
+    autocmd filetype asm map <buffer> <F9> :!nasm % -o"%:r"<cr>
+    autocmd filetype go map <buffer> <F9> :!go build "%"<cr>
 
-	autocmd filetype c,cpp,pascal,go map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
-	autocmd filetype java map <buffer> ;<F9> :!java %:r<cr>
+    autocmd filetype c,cpp,pascal,go map <buffer> ;<F9> :!./"%:r" < "%:r".tdat<cr>
+    autocmd filetype java map <buffer> ;<F9> :!java "%:r"<cr>
 endif
 
 """"""""""""""""""""""
