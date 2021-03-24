@@ -44,6 +44,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 Plug 'fatih/vim-go'
 "Plug 'scrooloose/syntastic'
 Plug 'dense-analysis/ale'
@@ -81,8 +82,14 @@ Plug 'bazelbuild/vim-bazel'
 call plug#end()
 
 """"""""""""""""""""""
-" gutentags
+" ludovicchabant/vim-gutentags & skywind3000/gutentags_plus
 """"""""""""""""""""""
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+let g:gutentags_plus_switch = 1
+
+let g:gutentags_define_advanced_commands = 1
+
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
@@ -267,7 +274,7 @@ if filereadable("Makefile")
     map <F9> :!make<cr>
 else
     autocmd filetype c map <buffer> <F9> :!gcc -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
-    autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g "%" -Wall -o "%:r"<cr>
+    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -g "%" -Wall -o "%:r"<cr>
     autocmd filetype pascal map <buffer> <F9> :!gpc  -g "%" -Wall -o "%:r"<cr>
     autocmd filetype java map <buffer> <F9> :!javac "%"<cr>
     autocmd filetype python map <buffer> <F9> :!python "%"<cr>
@@ -377,7 +384,7 @@ let g:ctrlp_custom_ignore = {
 """"""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""
-map <F3> :NERDTreeMirror<cr>
+"map <F3> :NERDTreeMirror<cr>
 map <F4> :NERDTreeToggle<cr>
 map <S-x> :NERDTreeFind<cr>
 
@@ -482,3 +489,18 @@ nnoremap <F5> :UndotreeToggle<cr>
 " leafgarland/typescript-vim
 """"""""""""""""""""""
 let g:typescript_indent_disable = 0
+
+
+""""""""""""""""""""""
+" ycm-core/YouCompleteMe
+""""""""""""""""""""""
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" let g:ycm_show_diagnostics_ui = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_collect_identifiers_from_tags_files = 0
+let ycm_min_num_of_chars_for_completion = 1
+" let g:ycm_cache_omnifunc = 0
+let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_goto_buffer_command = 'horizontal-split'
+" map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
