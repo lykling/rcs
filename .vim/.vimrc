@@ -21,7 +21,7 @@ endif
 "set bsdir=buffer
 "set autochdir
 
-"set enc=utf-8
+set enc=utf-8
 "set fenc=utf-8
 set fencs=utf-8,ucs-bom,gb18030,gb2312,gbk,cp936
 
@@ -300,6 +300,8 @@ nmap <S-up> :resize +1<cr>
 nmap <S-down> :resize -1<cr>
 map <s-insert> <middlemouse>
 map! <s-insert> <middlemouse>
+nmap <leader>tn :tn<cr>
+nmap <leader>tp :tp<cr>
 autocmd filetype java map <buffer> <F11> :JavaBrowser<cr>
 autocmd filetype java imap <buffer> <F11> <ESC><F11>
 
