@@ -17,9 +17,6 @@ BASE_FLAGS = [
     '-I/usr/include/eigen3/',
     '-I/usr/local/include',
     '-I/usr/local/fast-rtps/include/',
-    '-I/home/foliage/.local/apollo-external/usr/local/libtorch_gpu/include',
-    '-I/home/foliage/.local/apollo-external/usr/local/include',
-    '-I/home/foliage/.local/apollo-external/usr/include',
     '-I./',
     '-I%s' % (os.path.abspath(os.path.curdir)),
 ]

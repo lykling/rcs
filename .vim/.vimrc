@@ -154,7 +154,7 @@ endif
 "colorscheme blue
 "colorscheme darkblue
 "colorscheme default
-"colorscheme delek
+colorscheme delek
 "colorscheme desert
 "colorscheme elflord
 "colorscheme evening
@@ -163,7 +163,7 @@ endif
 "colorscheme morning
 "colorscheme murphy
 "colorscheme pablo
-colorscheme peachpuff
+"colorscheme peachpuff
 "colorscheme ron
 "colorscheme shine
 "colorscheme slate
