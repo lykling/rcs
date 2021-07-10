@@ -79,6 +79,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'jamessan/vim-gnupg'
 call plug#end()
 
 """"""""""""""""""""""
