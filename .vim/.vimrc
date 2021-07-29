@@ -85,7 +85,7 @@ call plug#end()
 """"""""""""""""""""""
 " ludovicchabant/vim-gutentags & skywind3000/gutentags_plus
 """"""""""""""""""""""
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
+let g:gutentags_modules = ['ctags']
 
 let g:gutentags_plus_switch = 1
 
@@ -106,7 +106,7 @@ let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " For universal ctags
-let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+" let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 " 检测 ~/.cache/tags 不存在就新建
 if !isdirectory(s:vim_tags)
@@ -349,6 +349,11 @@ let Tlist_Exit_OnlyWindow = 1
 "nmap <c-m> \m
 "nmap <c-/> \m
 map m <Plug>MarkSet
+map M <Plug>MarkClear
+map <leader>n :call <SNR>27_SearchCurrentMark()<CR>
+map <leader>N \#
+map <leader><leader>n \/
+map <leader><leader>N \?
 
 
 """"""""""""""""""""""
