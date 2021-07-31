@@ -28,6 +28,9 @@ set fencs=utf-8,ucs-bom,gb18030,gb2312,gbk,cp936
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+set nobackup
+set backupcopy=no
+
 set swapfile
 set dir=~/.vim/.swap-files//,/tmp//,./
 
@@ -47,7 +50,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'fatih/vim-go'
 "Plug 'scrooloose/syntastic'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -65,7 +68,8 @@ Plug 'groenewege/vim-less'
 Plug 'wavded/vim-stylus'
 "Plug 'tpope/vim-markdown'
 "Plug 'StanAngeloff/php.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
 Plug 'klen/python-mode'
 Plug 'suan/vim-instant-markdown'
@@ -80,6 +84,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
 Plug 'jamessan/vim-gnupg'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'cormacrelf/vim-colors-github'
+Plug 'joshdick/onedark.vim'
+Plug 'nonetallt/vim-neon-dark'
 call plug#end()
 
 """"""""""""""""""""""
@@ -157,7 +167,7 @@ endif
 "colorscheme blue
 "colorscheme darkblue
 "colorscheme default
-colorscheme delek
+"colorscheme delek
 "colorscheme desert
 "colorscheme elflord
 "colorscheme evening
@@ -172,6 +182,10 @@ colorscheme delek
 "colorscheme slate
 "colorscheme torte
 "colorscheme zellner
+
+"colorscheme github
+"colorscheme onedark
+colorscheme neon-dark
 
 "set background=dark
 "colorscheme solarized
@@ -209,6 +223,7 @@ autocmd filetype c,cpp,ruby,yaml set shiftwidth=2
 autocmd filetype make set noexpandtab
 autocmd filetype c,cpp,ruby,go,css,javascript,java,less,html,sh,python,tex,vim,htmldjango set expandtab
 autocmd filetype json,markdown set conceallevel=0
+set cino=N-s
 
 "set tags=./tags,./../tags,./../../tags,./**/tags
 set tags=./.tags;,.tags
@@ -277,7 +292,7 @@ if filereadable("Makefile")
     map <F9> :!make<cr>
 else
     autocmd filetype c map <buffer> <F9> :!gcc -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
-    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -g "%" -Wall -o "%:r"<cr>
+    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
     autocmd filetype pascal map <buffer> <F9> :!gpc  -g "%" -Wall -o "%:r"<cr>
     autocmd filetype java map <buffer> <F9> :!javac "%"<cr>
     autocmd filetype python map <buffer> <F9> :!python "%"<cr>
@@ -470,6 +485,7 @@ let g:syntastic_warning_symbol = "⚠"
 """"""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+" let g:airline_theme = 'github'
 
 """"""""""""""""""""""
 " scrooloose/syntastic
@@ -507,7 +523,8 @@ let g:typescript_indent_disable = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1
-let g:ycm_confirm_extra_conf = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_extra_conf_globlist = [ '~/.vim/.ycm_extra_conf.py' ]
 let g:ycm_collect_identifiers_from_tags_files = 0
 let ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_cache_omnifunc = 0
