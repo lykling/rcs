@@ -50,7 +50,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'fatih/vim-go'
 "Plug 'scrooloose/syntastic'
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
