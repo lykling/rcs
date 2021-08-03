@@ -29,6 +29,7 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 set nobackup
+set nowritebackup
 set backupcopy=no
 
 set swapfile
@@ -45,6 +46,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
@@ -72,6 +74,8 @@ Plug 'scrooloose/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
 Plug 'klen/python-mode'
+"Plug 'jmcantrell/vim-virtualenv'
+"Plug 'sansyrox/vim-python-virtualenv'
 Plug 'suan/vim-instant-markdown'
 Plug 'rust-lang/rust.vim'
 Plug 'yuezk/vim-js'
@@ -90,6 +94,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'joshdick/onedark.vim'
 Plug 'nonetallt/vim-neon-dark'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 """"""""""""""""""""""
@@ -473,7 +478,7 @@ hi SpecialKey ctermfg=236
 """"""""""""""""""""""
 " hushicai/fecs.vim
 """"""""""""""""""""""
-" let g:syntastic_mode_map = {'mode': 'passive'} 
+" let g:syntastic_mode_map = {'mode': 'passive'}
 " nmap <silent> <F5> :SyntasticCheck<cr>
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_fecs_args = "--reporter=baidu"
@@ -531,3 +536,33 @@ let ycm_min_num_of_chars_for_completion = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 " let g:ycm_goto_buffer_command = 'horizontal-split'
 " map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+""""""""""""""""""""""
+" dense-analysis/ale
+""""""""""""""""""""""
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint', 'remove_trailling_lines', 'trim_whitespace'],
+\   'python': ['flake8', 'rylint', 'remove_trailling_lines', 'trim_whitespace'],
+\}
+let g:ale_fix_on_save = 1
+
+""""""""""""""""""""""
+" neoclide/coc.nvim
+""""""""""""""""""""""
+let g:coc_global_extensions = [
+            \'coc-markdownlint',
+            \'coc-highlight',
+            \'coc-eslint',
+            \'coc-sh',
+            \'coc-vetur',
+            \'coc-go',
+            \'coc-python',
+            \'coc-explorer',
+            \'coc-flutter',
+            \'coc-json',
+            \'coc-yaml',
+            \'coc-tsserver',
+            \'coc-pyright',
+            \'coc-snippets',
+            \'coc-git'
+            \]
