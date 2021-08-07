@@ -4,7 +4,8 @@
 " Usage: 	copy this file to home directory
 
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" Jump to last post
+"au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 set exrc
 set secure
 autocmd BufRead scp://* :set bt=acwrite
@@ -50,6 +51,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
+Plug 'bazelbuild/vim-ft-bzl'
 Plug 'fatih/vim-go'
 "Plug 'scrooloose/syntastic'
 Plug 'dense-analysis/ale'
@@ -77,7 +79,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'klen/python-mode'
 "Plug 'jmcantrell/vim-virtualenv'
 "Plug 'sansyrox/vim-python-virtualenv'
-Plug 'suan/vim-instant-markdown'
+"Plug 'suan/vim-instant-markdown'
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'rust-lang/rust.vim'
 Plug 'yuezk/vim-js'
 Plug 'leafgarland/typescript-vim'
@@ -88,6 +91,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'grailbio/bazel-compilation-database'
 Plug 'jamessan/vim-gnupg'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -536,11 +540,13 @@ let ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_cache_omnifunc = 0
 let g:ycm_seed_identifiers_with_syntax = 1
 " let g:ycm_goto_buffer_command = 'horizontal-split'
-" map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" map <c-J> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"""""""""""""""""""
 " dense-analysis/ale
 """"""""""""""""""""""
+autocmd filetype c,cpp :ALEDisableBuffer
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint', 'remove_trailling_lines', 'trim_whitespace'],
 \   'python': ['flake8', 'rylint', 'remove_trailling_lines', 'trim_whitespace'],
