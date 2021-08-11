@@ -90,6 +90,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+"Plug 'rhysd/vim-clang-format'
 Plug 'bazelbuild/vim-bazel'
 Plug 'grailbio/bazel-compilation-database'
 Plug 'jamessan/vim-gnupg'
@@ -302,7 +305,7 @@ if filereadable("Makefile")
     map <F9> :!make<cr>
 else
     autocmd filetype c map <buffer> <F9> :!gcc -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
-    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
+    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -lcurl -g "%" -Wall -o "%:r"<cr>
     autocmd filetype pascal map <buffer> <F9> :!gpc  -g "%" -Wall -o "%:r"<cr>
     autocmd filetype java map <buffer> <F9> :!javac "%"<cr>
     autocmd filetype python map <buffer> <F9> :!python "%"<cr>
@@ -573,3 +576,19 @@ let g:coc_global_extensions = [
             \'coc-snippets',
             \'coc-git'
             \]
+""""""""""""""""""""""
+" google/vim-codefmt
+""""""""""""""""""""""
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
