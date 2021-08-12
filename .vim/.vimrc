@@ -48,6 +48,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
@@ -94,7 +95,7 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 "Plug 'rhysd/vim-clang-format'
 Plug 'bazelbuild/vim-bazel'
-Plug 'grailbio/bazel-compilation-database'
+"Plug 'grailbio/bazel-compilation-database'
 Plug 'jamessan/vim-gnupg'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -550,10 +551,10 @@ map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " dense-analysis/ale
 """"""""""""""""""""""
 autocmd filetype c,cpp :ALEDisableBuffer
-let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint', 'remove_trailling_lines', 'trim_whitespace'],
-\   'python': ['flake8', 'rylint', 'remove_trailling_lines', 'trim_whitespace'],
-\}
+"let g:ale_fixers = {
+"\   'javascript': ['prettier', 'eslint', 'remove_trailling_lines', 'trim_whitespace'],
+"\   'python': ['flake8', 'rylint', 'remove_trailling_lines', 'trim_whitespace'],
+"\}
 let g:ale_fix_on_save = 1
 
 """"""""""""""""""""""

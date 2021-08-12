@@ -11,7 +11,7 @@ BASE_FLAGS = [
     '-x',
     'c++',
     '-DNDEBUG',
-    '-std=c++11',
+    '-std=c++17',
     '-I/usr/lib/',
     '-I/usr/include/',
     '-I/usr/include/eigen3/',
