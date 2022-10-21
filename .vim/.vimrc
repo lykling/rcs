@@ -47,11 +47,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
+Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'mbbill/undotree'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'skywind3000/gutentags_plus'
 Plug 'bazelbuild/vim-ft-bzl'
 Plug 'fatih/vim-go'
 "Plug 'scrooloose/syntastic'
@@ -85,6 +86,7 @@ Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn in
 Plug 'rust-lang/rust.vim'
 Plug 'yuezk/vim-js'
 Plug 'leafgarland/typescript-vim'
+Plug 'towolf/vim-helm'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-unimpaired'
@@ -104,6 +106,7 @@ Plug 'cormacrelf/vim-colors-github'
 Plug 'joshdick/onedark.vim'
 Plug 'nonetallt/vim-neon-dark'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ianding1/leetcode.vim'
 call plug#end()
 
 """"""""""""""""""""""
@@ -211,8 +214,8 @@ set hlsearch
 set hls is
 set incsearch
 set ruler
-"set mouse=a
-set mouse=h
+set mouse=a
+"set mouse=h
 set backspace=2
 
 set ai
@@ -278,7 +281,7 @@ func! JSCommentHead()
     call append(4, '* @author Pride Leong<lykling.lyk@gmail.com>')
     call append(5, '*/')
 endfunc
-autocmd filetype javascript nmap <buffer> <F6> :call JSCommentHead()<cr>:1<cr>=6=:4<cr>A
+"autocmd filetype javascript nmap <buffer> <F6> :call JSCommentHead()<cr>:1<cr>=6=:4<cr>A
 func! JSComment()
     call append(line('.')-1, '')
     call setline(line('.')-1, '/**')
@@ -288,7 +291,7 @@ func! JSComment()
     call append(line('.')-1, '* @author Pride Leong<foliage@iooy.cc>')
     call append(line('.')-1, '*/')
 endfunc
-autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
+"autocmd filetype javascript nmap <buffer> <F7> :call JSComment()<cr>6k=6=jA
 func! ReplaceMail()
     %s/<lykling.lyk@gmail.com>/(liangjinping@baidu.com)/g
 endfunc
@@ -545,7 +548,9 @@ let ycm_min_num_of_chars_for_completion = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 " let g:ycm_goto_buffer_command = 'horizontal-split'
 map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <F6> :YcmCompleter GoToReferences<CR>
 " map <c-J> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_clangd_binary_path = trim(system('which clangd'))
 
 """"""""""""""""""""""
 " dense-analysis/ale
@@ -560,6 +565,7 @@ let g:ale_fix_on_save = 1
 """"""""""""""""""""""
 " neoclide/coc.nvim
 """"""""""""""""""""""
+autocmd fileType python let b:coc_root_patterns = ['.git', '.env']
 let g:coc_global_extensions = [
             \'coc-markdownlint',
             \'coc-highlight',
@@ -567,7 +573,6 @@ let g:coc_global_extensions = [
             \'coc-sh',
             \'coc-vetur',
             \'coc-go',
-            \'coc-python',
             \'coc-explorer',
             \'coc-flutter',
             \'coc-json',
@@ -575,21 +580,37 @@ let g:coc_global_extensions = [
             \'coc-tsserver',
             \'coc-pyright',
             \'coc-snippets',
-            \'coc-git'
+            \'coc-git',
+            \'coc-protobuf'
             \]
 """"""""""""""""""""""
 " google/vim-codefmt
 """"""""""""""""""""""
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType c,cpp,proto,arduino AutoFormatBuffer clang-format
+  autocmd FileType typescript,typescriptreact,json,javascript AutoFormatBuffer prettier
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType html,css,sass,scss,less AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
+  " autocmd FileType python AutoFormatBuffer yapf
+  autocmd FileType python AutoFormatBuffer autopep8
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
+
+""""""""""""""""""""""
+" termdebug
+""""""""""""""""""""""
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
+autocmd filetype c,cpp :packadd termdebug
+
+""""""""""""""""""""""
+" ianding1/leetcode.vim
+""""""""""""""""""""""
+let g:leetcode_browser = 'chrome'
+let g:leetcode_solution_filetype = 'c'
