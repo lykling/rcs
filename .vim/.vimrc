@@ -105,8 +105,13 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'joshdick/onedark.vim'
 Plug 'nonetallt/vim-neon-dark'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'nordtheme/vim'
+Plug 'rakr/vim-one'
+Plug 'sainnhe/everforest'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ianding1/leetcode.vim'
+Plug 'github/copilot.vim'
 call plug#end()
 
 """"""""""""""""""""""
@@ -202,7 +207,28 @@ endif
 
 "colorscheme github
 "colorscheme onedark
-colorscheme neon-dark
+"colorscheme neon-dark
+"colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+"vim.cmd.colorscheme "catppuccin"
+colorscheme nord
+"colorscheme one
+"set background=dark
+
+"" Important!!
+"if has('termguicolors')
+"    set termguicolors
+"endif
+"" For dark version.
+"set background=dark
+"" For light version.
+"set background=light
+"" Set contrast.
+"" This configuration option should be placed before `colorscheme everforest`.
+"" Available values: 'hard', 'medium'(default), 'soft'
+"let g:everforest_background = 'soft'
+"" For better performance
+"let g:everforest_better_performance = 1
+"colorscheme everforest
 
 "set background=dark
 "colorscheme solarized
