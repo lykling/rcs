@@ -610,9 +610,14 @@ let g:coc_global_extensions = [
             \'coc-protobuf'
             \]
 """"""""""""""""""""""
+" google/vim-glaive
+""""""""""""""""""""""
+call glaive#Install()
+""""""""""""""""""""""
 " google/vim-codefmt
 """"""""""""""""""""""
 augroup autoformat_settings
+  autocmd FileType sh AutoFormatBuffer shfmt
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto,arduino AutoFormatBuffer clang-format
   autocmd FileType typescript,typescriptreact,json,javascript AutoFormatBuffer prettier
@@ -627,6 +632,9 @@ augroup autoformat_settings
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
+
+" Glaive codefmt shfmt_options=`['-i', '2', '-ci', '-kp']`
+" Glaive codefmt shfmt_options=`[]`
 
 """"""""""""""""""""""
 " termdebug
