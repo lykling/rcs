@@ -64,7 +64,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 "Plug 'lykling/fecs.vim'
-Plug 'hushicai/fecs.vim'
+"Plug 'hushicai/fecs.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'moll/vim-node'
 "Plug 'mxw/vim-jsx'
@@ -88,7 +88,7 @@ Plug 'yuezk/vim-js'
 Plug 'leafgarland/typescript-vim'
 Plug 'towolf/vim-helm'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -626,8 +626,7 @@ augroup autoformat_settings
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,sass,scss,less AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
-  " autocmd FileType python AutoFormatBuffer yapf
-  autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
