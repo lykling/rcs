@@ -11,6 +11,9 @@ set secure
 autocmd BufRead scp://* :set bt=acwrite
 autocmd BufWritePost scp://* :set bt=acwrite
 
+if has('termguicolors')
+    set termguicolors
+endif
 
 set nocompatible
 "set noundofile
@@ -107,6 +110,13 @@ Plug 'joshdick/onedark.vim'
 Plug 'nonetallt/vim-neon-dark'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'nordtheme/vim'
+Plug 'danilo-augusto/vim-afterglow'
+"Plug 'ayu-theme/ayu-vim'
+Plug 'Badacadabra/vim-archery'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'wadackel/vim-dogrun'
+Plug 'endel/vim-github-colorscheme'
+Plug 'liuchengxu/space-vim-dark'
 Plug 'rakr/vim-one'
 Plug 'sainnhe/everforest'
 Plug 'altercation/vim-colors-solarized'
@@ -210,7 +220,23 @@ endif
 "colorscheme neon-dark
 "colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 "vim.cmd.colorscheme "catppuccin"
-colorscheme nord
+"colorscheme nord
+"colorscheme afterglow
+"let ayucolor="mirage"
+"colorscheme ayu
+"colorscheme archery
+"colorscheme challenger_deep
+"colorscheme dogrun
+"colorscheme github
+let g:space_vim_dark_enable_italic = 1
+let g:space_vim_dark_background = 234
+colorscheme space-vim-dark
+hi Normal ctermbg=NONE guifg=#EFEFEF guibg=NONE
+hi LineNr ctermbg=NONE guifg=#9F9F9F guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+"hi Comment ctermfg=59 guifg=#5C6370
+"hi Comment ctermfg=NONE guifg=#BFBFBF
+hi Comment ctermfg=59 guifg=#6F6F6F
 "colorscheme one
 "set background=dark
 
@@ -621,6 +647,7 @@ augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto,arduino AutoFormatBuffer clang-format
   autocmd FileType typescript,typescriptreact,json,javascript AutoFormatBuffer prettier
+  autocmd FileType markdown AutoFormatBuffer prettier
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
@@ -634,6 +661,7 @@ augroup END
 
 " Glaive codefmt shfmt_options=`['-i', '2', '-ci', '-kp']`
 " Glaive codefmt shfmt_options=`[]`
+Glaive codefmt prettier_options=`['--prose-wrap', 'preserve']`
 
 """"""""""""""""""""""
 " termdebug
