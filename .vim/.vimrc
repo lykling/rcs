@@ -120,6 +120,7 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'rakr/vim-one'
 Plug 'sainnhe/everforest'
 Plug 'altercation/vim-colors-solarized'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ianding1/leetcode.vim'
 Plug 'github/copilot.vim'
 call plug#end()
@@ -625,6 +626,7 @@ let g:coc_global_extensions = [
             \'coc-sh',
             \'coc-vetur',
             \'coc-go',
+            \'coc-clangd',
             \'coc-explorer',
             \'coc-flutter',
             \'coc-json',
