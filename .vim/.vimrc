@@ -108,7 +108,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'joshdick/onedark.vim'
 Plug 'nonetallt/vim-neon-dark'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'nordtheme/vim'
 Plug 'danilo-augusto/vim-afterglow'
 "Plug 'ayu-theme/ayu-vim'
