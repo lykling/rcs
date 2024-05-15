@@ -35,6 +35,7 @@ source $VIMRUNTIME/menu.vim
 set nobackup
 set nowritebackup
 set backupcopy=no
+set updatetime=300
 
 set swapfile
 set dir=~/.vim/.swap-files//,/tmp//,./
@@ -123,7 +124,14 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ianding1/leetcode.vim'
 Plug 'github/copilot.vim'
+Plug 'puremourning/vimspector'
 call plug#end()
+
+""""""""""""""""""""""
+" puremourning/vimspector
+""""""""""""""""""""""
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'delve', 'vscode-bash-debug', 'vscode-js-debug', 'local-lua-debugger-vscode', 'tclpro', 'debugger-for-chrome', 'vscode-java-debug', 'vscode-php-debug', 'vscode-firefox-debug' ]
+let g:vimspector_enable_mappings = 'HUMAN'
 
 """"""""""""""""""""""
 " ludovicchabant/vim-gutentags & skywind3000/gutentags_plus
@@ -358,22 +366,22 @@ endfunc
 """"""""""""""""""""""
 " program test
 """"""""""""""""""""""
-if filereadable("Makefile")
-    map <F9> :!make<cr>
-else
-    autocmd filetype c map <buffer> <F9> :!gcc -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
-    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -lcurl -g "%" -Wall -o "%:r"<cr>
-    autocmd filetype pascal map <buffer> <F9> :!gpc  -g "%" -Wall -o "%:r"<cr>
-    autocmd filetype java map <buffer> <F9> :!javac "%"<cr>
-    autocmd filetype python map <buffer> <F9> :!python "%"<cr>
-    autocmd filetype expect map <buffer> <F9> :!expect "%"<cr>
-    autocmd filetype sh map <buffer> <F9> :!sh "%"<cr>
-    autocmd filetype asm map <buffer> <F9> :!nasm % -o"%:r"<cr>
-    autocmd filetype go map <buffer> <F9> :!go build "%"<cr>
-
-    autocmd filetype c,cpp,pascal,go map <buffer> ;<F9> :!./"%:r" < "%:r".tdat<cr>
-    autocmd filetype java map <buffer> ;<F9> :!java "%:r"<cr>
-endif
+"if filereadable("Makefile")
+"    map <F9> :!make<cr>
+"else
+"    autocmd filetype c map <buffer> <F9> :!gcc -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -g "%" -Wall -o "%:r"<cr>
+"    autocmd filetype cpp map <buffer> <F9> :!g++ --std=c++11 -fsanitize=address -fno-omit-frame-pointer -lm -lpthread -pthread -lcurl -g "%" -Wall -o "%:r"<cr>
+"    autocmd filetype pascal map <buffer> <F9> :!gpc  -g "%" -Wall -o "%:r"<cr>
+"    autocmd filetype java map <buffer> <F9> :!javac "%"<cr>
+"    autocmd filetype python map <buffer> <F9> :!python "%"<cr>
+"    autocmd filetype expect map <buffer> <F9> :!expect "%"<cr>
+"    autocmd filetype sh map <buffer> <F9> :!sh "%"<cr>
+"    autocmd filetype asm map <buffer> <F9> :!nasm % -o"%:r"<cr>
+"    autocmd filetype go map <buffer> <F9> :!go build "%"<cr>
+"
+"    autocmd filetype c,cpp,pascal,go map <buffer> ;<F9> :!./"%:r" < "%:r".tdat<cr>
+"    autocmd filetype java map <buffer> ;<F9> :!java "%:r"<cr>
+"endif
 
 """"""""""""""""""""""
 " keymaps
@@ -390,8 +398,8 @@ map <s-insert> <middlemouse>
 map! <s-insert> <middlemouse>
 nmap <leader>tn :tn<cr>
 nmap <leader>tp :tp<cr>
-autocmd filetype java map <buffer> <F11> :JavaBrowser<cr>
-autocmd filetype java imap <buffer> <F11> <ESC><F11>
+" autocmd filetype java map <buffer> <F11> :JavaBrowser<cr>
+" autocmd filetype java imap <buffer> <F11> <ESC><F11>
 
 """"""""""""""""""""""
 " keymap for split
@@ -480,7 +488,7 @@ let g:ctrlp_custom_ignore = {
 " NERDTree
 """"""""""""""""""""""
 "map <F3> :NERDTreeMirror<cr>
-map <F4> :NERDTreeToggle<cr>
+map <leader><F4> :NERDTreeToggle<cr>
 map <S-x> :NERDTreeFind<cr>
 
 """"""""""""""""""""""
@@ -579,7 +587,7 @@ let g:pymode_rope = 0
 """"""""""""""""""""""
 " mbbill/undotree
 """"""""""""""""""""""
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <leader><F3> :UndotreeToggle<cr>
 
 """"""""""""""""""""""
 " leafgarland/typescript-vim
@@ -600,8 +608,8 @@ let ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_cache_omnifunc = 0
 let g:ycm_seed_identifiers_with_syntax = 1
 " let g:ycm_goto_buffer_command = 'horizontal-split'
-map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <F6> :YcmCompleter GoToReferences<CR>
+" map <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" map <F6> :YcmCompleter GoToReferences<CR>
 " map <c-J> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "let g:ycm_clangd_binary_path = trim(system('which clangd'))
 
@@ -637,6 +645,17 @@ let g:coc_global_extensions = [
             \'coc-git',
             \'coc-protobuf'
             \]
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 """"""""""""""""""""""
 " google/vim-glaive
 """"""""""""""""""""""
@@ -669,7 +688,7 @@ Glaive codefmt prettier_options=`['--prose-wrap', 'preserve']`
 " termdebug
 """"""""""""""""""""""
 let g:termdebug_popup = 0
-let g:termdebug_wide = 163
+let g:termdebug_wide = 80
 autocmd filetype c,cpp :packadd termdebug
 
 """"""""""""""""""""""
