@@ -124,6 +124,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ianding1/leetcode.vim'
 Plug 'github/copilot.vim'
+Plug 'willchao612/vim-diagon'
 Plug 'puremourning/vimspector'
 call plug#end()
 
@@ -423,10 +424,6 @@ let twitvim_enable_python = 1
 let twitvim_browser_cmd = 'firefox-bin'
 let twitvim_count = 39
 
-let JavaBrowser_Ctags_Cmd = '/usr/bin/ctags'
-let JavaBrowser_Use_Icon = 1
-let JavaBrowser_Use_Highlight_Tag = 1
-
 "let b:javascript_fold=1
 let javascript_enable_domhtmlcss=1
 "autocmd filetype javascript setlocal foldlevel=1
@@ -689,7 +686,7 @@ Glaive codefmt prettier_options=`['--prose-wrap', 'preserve']`
 """"""""""""""""""""""
 let g:termdebug_popup = 0
 let g:termdebug_wide = 80
-autocmd filetype c,cpp :packadd termdebug
+autocmd filetype c,cpp :packadd! termdebug
 
 """"""""""""""""""""""
 " ianding1/leetcode.vim
